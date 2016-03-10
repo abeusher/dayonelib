@@ -8,7 +8,7 @@ pip install dayonelib
 ``
 ### Dependencies
 * tzlocal
-* PyObjC
+* pyobjc-framework-CoreLocation
 * plistlib
 * uuid
 * arrow
