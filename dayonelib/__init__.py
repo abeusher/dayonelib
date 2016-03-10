@@ -14,10 +14,10 @@ class DayOneEntry(object):
         self.starred = starred
         self.text = text
         # We default to now time. Override it if needed
-        self._time = arrow.utcnow().format('YYYY-MM-DDTHH:mm:ssz')
+        self.time = arrow.utcnow().format('YYYY-MM-DDTHH:mm:ssz')
         self.lat = None
         self.lon = None
-        self.starred = None
+        self.starred = False
         self.tags = []
         self.text = None
         self._uuid = None
@@ -77,7 +77,8 @@ class DayOneEntry(object):
         entry_dict['UUID'] = self.uuid
         entry_dict['Creation Date'] = self.time
         entry_dict['Time Zone'] = self.tz
-        entry_dict['Tags'] = self.tags
+        if self.tags:
+            entry_dict['Tags'] = self.tags
         entry_dict['Entry Text'] = self.text
         entry_dict['Starred'] = self.starred
         entry_dict['Location'] = self.location
